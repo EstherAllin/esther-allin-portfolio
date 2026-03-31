@@ -16,9 +16,9 @@ export default function SectionHeading({
   accent = "purple",
 }: SectionHeadingProps) {
   return (
-    <div className="mb-14 flex flex-col items-center gap-3 text-center">
+    <div className="mb-8 flex flex-col items-center gap-3 text-center sm:mb-14">
       <SectionLabel label={label} accent={accent} withLines />
-      <h2 className="text-4xl font-bold text-white">{title}</h2>
+      <h2 className="text-4xl font-black text-white">{title}</h2>
       {subtitle && <p className="max-w-md text-zinc-400">{subtitle}</p>}
     </div>
   );

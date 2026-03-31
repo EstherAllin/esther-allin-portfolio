@@ -27,7 +27,7 @@ export default function NavBar() {
         {/* Logo */}
         <a href="#home" className="text-xl font-black tracking-tight text-white">
           Vala
-          <span className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-400 bg-clip-text text-transparent">
             Shibbs
           </span>
         </a>

@@ -38,7 +38,7 @@ const releases = [
 
 const cardGradients = [
   "from-fuchsia-500/20 to-purple-600/20",
-  "from-cyan-500/20 to-blue-600/20",
+  "from-indigo-500/20 to-purple-600/20",
   "from-purple-500/20 to-pink-500/20",
 ];
 
@@ -46,7 +46,7 @@ export default function MusicSection() {
   return (
     <section id="music" className="relative overflow-hidden bg-zinc-900 px-6 py-20">
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-20 left-1/4 h-[380px] w-[380px] rounded-full bg-cyan-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-20 left-1/4 h-[380px] w-[380px] rounded-full bg-indigo-500/15 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 right-1/4 h-[280px] w-[280px] rounded-full bg-fuchsia-600/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-5xl">
@@ -54,14 +54,14 @@ export default function MusicSection() {
           label="Music"
           title="Music Chaos"
           subtitle="Original tracks, sonic experiments, and covers. All on Spotify."
-          accent="cyan"
+          accent="purple"
         />
 
         {/* Featured track — hero card */}
-        <div className="mb-8 overflow-hidden rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-zinc-800/80 to-zinc-900/80">
+        <div className="mb-8 overflow-hidden rounded-2xl border border-purple-500/20 bg-gradient-to-br from-zinc-800/80 to-zinc-900/80">
           <div className="flex flex-col sm:flex-row">
             {/* Album art */}
-            <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-500/25 via-fuchsia-500/15 to-purple-600/25 sm:h-auto sm:w-52">
+            <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-purple-600/25 via-fuchsia-500/15 to-indigo-600/25 sm:h-auto sm:w-52">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="text-white/20">
                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
               </svg>
@@ -72,7 +72,7 @@ export default function MusicSection() {
             <div className="flex flex-1 flex-col justify-between gap-4 p-6 sm:p-8">
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full bg-cyan-500/15 px-3 py-0.5 text-xs font-bold uppercase tracking-widest text-cyan-400">
+                  <span className="rounded-full bg-purple-500/15 px-3 py-0.5 text-xs font-bold uppercase tracking-widest text-purple-400">
                     {featuredTrack.label}
                   </span>
                   <span className="text-xs text-zinc-600">{featuredTrack.year}</span>
@@ -114,7 +114,7 @@ export default function MusicSection() {
         <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
           More Releases
         </h4>
-        <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-8 grid gap-4 md:grid-cols-3">
           {releases.map((release, i) => (
             <div
               key={i}
@@ -154,8 +154,8 @@ export default function MusicSection() {
               ) : (
                 <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-600">
                   <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-500" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-purple-500" />
                   </span>
                   Coming Soon
                 </span>
