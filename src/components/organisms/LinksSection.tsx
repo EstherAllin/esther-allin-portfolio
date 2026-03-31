@@ -53,10 +53,10 @@ const links = [
 
 export default function LinksSection() {
   return (
-    <section id="links" className="relative overflow-hidden bg-zinc-950 px-6 py-20">
+    <section id="links" className="relative overflow-hidden bg-[#070B14] px-6 py-20">
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute top-0 right-1/3 h-[300px] w-[300px] rounded-full bg-fuchsia-600/[0.08] blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-[250px] w-[250px] rounded-full bg-purple-600/[0.08] blur-3xl" />
+      <div className="pointer-events-none absolute -top-12 right-1/4 h-[460px] w-[460px] glow-fuchsia" />
+      <div className="pointer-events-none absolute -bottom-16 left-1/4 h-[400px] w-[400px] glow-indigo" />
 
       <div className="relative z-10 mx-auto max-w-xl">
         <SectionHeading

@@ -1,9 +1,9 @@
 type Accent = "purple" | "cyan" | "fuchsia";
 
 const accentClasses: Record<Accent, { line: string; text: string }> = {
-  purple: { line: "bg-purple-500", text: "text-purple-400" },
-  cyan: { line: "bg-cyan-500", text: "text-cyan-400" },
-  fuchsia: { line: "bg-fuchsia-500", text: "text-fuchsia-400" },
+  purple: { line: "bg-[#7B3FF2]", text: "text-violet-400" },
+  cyan: { line: "bg-[#19E3FF]", text: "text-[#19E3FF]" },
+  fuchsia: { line: "bg-[#FF2D95]", text: "text-[#FF2D95]" },
 };
 
 interface SectionLabelProps {

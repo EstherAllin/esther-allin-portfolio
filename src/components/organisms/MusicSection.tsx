@@ -37,17 +37,18 @@ const releases = [
 ];
 
 const cardGradients = [
-  "from-fuchsia-500/20 to-purple-600/20",
-  "from-indigo-500/20 to-purple-600/20",
-  "from-purple-500/20 to-pink-500/20",
+  "from-[#FF2D95]/20 to-[#7B3FF2]/20",
+  "from-[#19E3FF]/15 to-[#7B3FF2]/20",
+  "from-[#7B3FF2]/20 to-[#FF2D95]/20",
 ];
 
 export default function MusicSection() {
   return (
-    <section id="music" className="relative overflow-hidden bg-zinc-900 px-6 py-20">
+    <section id="music" className="relative overflow-hidden bg-[#111827] px-6 py-20">
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-20 left-1/4 h-[380px] w-[380px] rounded-full bg-indigo-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[280px] w-[280px] rounded-full bg-fuchsia-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -left-8 h-[560px] w-[560px] glow-indigo" />
+      <div className="pointer-events-none absolute -bottom-20 -right-8 h-[460px] w-[460px] glow-fuchsia" />
+      <div className="pointer-events-none absolute top-1/2 right-1/3 h-[300px] w-[300px] -translate-y-1/2 glow-purple" />
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <SectionHeading
@@ -61,7 +62,7 @@ export default function MusicSection() {
         <div className="mb-8 overflow-hidden rounded-2xl border border-purple-500/20 bg-gradient-to-br from-zinc-800/80 to-zinc-900/80">
           <div className="flex flex-col sm:flex-row">
             {/* Album art */}
-            <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-purple-600/25 via-fuchsia-500/15 to-indigo-600/25 sm:h-auto sm:w-52">
+            <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-[#7B3FF2]/25 via-[#FF2D95]/15 to-[#19E3FF]/15 sm:h-auto sm:w-52">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="text-white/20">
                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
               </svg>
@@ -118,7 +119,7 @@ export default function MusicSection() {
           {releases.map((release, i) => (
             <div
               key={i}
-              className="flex flex-col gap-3 rounded-xl border border-zinc-800 bg-zinc-800/40 p-5 transition hover:border-zinc-600 hover:bg-zinc-800/70"
+              className="flex flex-col gap-3 rounded-xl card-surface p-5"
             >
               <div
                 className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${cardGradients[i % cardGradients.length]}`}
@@ -165,7 +166,7 @@ export default function MusicSection() {
         </div>
 
         {/* Spotify follow CTA */}
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-zinc-800 bg-zinc-800/40 p-5 sm:flex-row sm:p-6">
+        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl card-surface p-5 sm:flex-row sm:p-6">
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-green-500 text-white shadow-lg shadow-green-900/30">
               <SpotifyIcon size={20} />

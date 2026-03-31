@@ -6,14 +6,14 @@ interface TrackCardProps {
 }
 
 const cardGradients = [
-  "from-cyan-500/20 to-purple-500/20",
-  "from-fuchsia-500/20 to-cyan-500/20",
+  "from-purple-500/20 to-fuchsia-500/20",
+  "from-fuchsia-500/20 to-indigo-500/20",
   "from-purple-500/20 to-pink-500/20",
 ];
 
 export default function TrackCard({ title, description, spotify, index = 0 }: TrackCardProps) {
   return (
-    <div className="group flex flex-col gap-3 rounded-xl border border-zinc-800 bg-zinc-800/40 p-6 transition hover:border-zinc-600 hover:bg-zinc-800/70">
+    <div className="group flex flex-col gap-3 rounded-xl card-surface p-6">
       <div
         className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${cardGradients[index % cardGradients.length]}`}
       >
@@ -37,8 +37,8 @@ export default function TrackCard({ title, description, spotify, index = 0 }: Tr
       ) : (
         <span className="mt-auto flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-zinc-500">
           <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-purple-500" />
           </span>
           Coming Soon
         </span>
