@@ -1,5 +1,6 @@
 import SectionHeading from "../molecules/SectionHeading";
 import SocialLinkItem from "../molecules/SocialLinkItem";
+import { sectionBackgrounds } from "../../tokens/sectionBackgrounds";
 import {
   TwitchIcon,
   SpotifyIcon,
@@ -53,7 +54,11 @@ const links = [
 
 export default function LinksSection() {
   return (
-    <section id="links" className="relative overflow-hidden bg-[#070B14] px-6 py-20">
+    <section
+      id="links"
+      className="relative overflow-hidden px-6 py-20"
+      style={{ background: [...sectionBackgrounds.links].join(", ") }}
+    >
       {/* Ambient glow */}
       <div className="pointer-events-none absolute -top-12 right-1/4 h-[460px] w-[460px] glow-fuchsia" />
       <div className="pointer-events-none absolute -bottom-16 left-1/4 h-[400px] w-[400px] glow-indigo" />

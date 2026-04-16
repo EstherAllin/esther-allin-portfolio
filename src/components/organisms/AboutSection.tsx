@@ -1,5 +1,6 @@
 import SectionLabel from "../atoms/SectionLabel";
 import { TwitchIcon } from "../atoms/icons";
+import { sectionBackgrounds } from "../../tokens/sectionBackgrounds";
 
 const tags = ["Variety Games", "Jump Scares", "The Pug Empire", "Rupert Approved", "Horror Nights", "Wine-Fueled"];
 
@@ -11,10 +12,22 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative overflow-hidden bg-[linear-gradient(to_bottom,transparent_0%,#111827_15%,#111827_100%)] px-6 py-20">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-16 -left-16 h-[520px] w-[520px] glow-indigo" />
-      <div className="pointer-events-none absolute -bottom-16 -right-16 h-[420px] w-[420px] glow-fuchsia" />
+    <section
+      id="about"
+      className="relative overflow-hidden px-6 py-20"
+      style={{ background: [...sectionBackgrounds.about].join(", ") }}
+    >
+      {/* Hero texture echo */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          opacity: 0.12,
+          mixBlendMode: "soft-light",
+        }}
+      />
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="relative flex flex-col items-center md:block">
@@ -32,16 +45,16 @@ export default function AboutSection() {
           {/* Text — offset right on desktop to clear the avatar */}
           <div className="flex max-w-xl flex-col gap-5 text-center md:ml-[22rem] md:text-left">
             <div className="flex justify-center md:justify-start">
-              <SectionLabel label="About" accent="purple" />
+              <SectionLabel label="About" accent="cyan" />
             </div>
             <h2 className="text-3xl font-black leading-tight text-[#C8CDD5] sm:text-4xl">
               The Scream Behind the Stream
             </h2>
-            <p className="text-lg font-medium italic text-[#FF2D95]/60 tracking-wide">
+            <p className="text-lg font-medium italic text-[#a78bfa]/80 tracking-wide">
               Sarcastic. Slightly feral. Screaming at horror games like it&apos;s cardio.
             </p>
             <p className="max-w-lg text-base leading-relaxed text-zinc-400">
-              I&apos;m <span className="font-semibold text-[#E5E7EB]">ValaShibbs</span> — a variety streamer,
+              I&apos;m <span className="font-semibold text-[#E5E7EB]">ValaShibbs</span> - a variety streamer,
               so we play a bit of everything. Indie games, shooters, city builders, crafting games,
               RPGs, MMOs, and whatever else feels like a good idea at the time. Horror is a big part
               of the vibe, but it&apos;s definitely not the whole story.
@@ -56,7 +69,7 @@ export default function AboutSection() {
                 rel="noopener noreferrer"
                 className="font-semibold text-[#FF2D95] underline decoration-[#FF2D95]/30 underline-offset-2 hover:text-[#FF2D95]/80"
               >The Pug Empire</a>{" "}
-              — our gloriously chaotic misfit crew, proudly repped by Rupert.
+              - our gloriously chaotic misfit crew, proudly repped by Rupert.
             </p>
             <p className="max-w-lg text-base leading-relaxed text-zinc-400">
               Bring snacks. Lower your expectations. And don&apos;t touch my wine.
@@ -67,10 +80,10 @@ export default function AboutSection() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col items-center gap-0.5 rounded-lg border border-purple-400/20 bg-purple-500/10 px-4 py-2 transition hover:border-purple-400/40 hover:bg-purple-500/20 md:items-start"
+                  className="flex flex-col items-center gap-0.5 rounded-lg border border-violet-400/35 bg-violet-600/15 px-4 py-2 transition hover:border-violet-400/55 hover:bg-violet-600/25 md:items-start"
                 >
-                  <span className="text-[10px] uppercase tracking-widest text-purple-300/50">{stat.label}</span>
-                  <span className="text-sm font-bold text-purple-200">{stat.value}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-violet-300/65">{stat.label}</span>
+                  <span className="text-sm font-bold text-white">{stat.value}</span>
                 </div>
               ))}
             </div>
@@ -79,7 +92,7 @@ export default function AboutSection() {
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[#FF8A3D]/30 bg-[#FF8A3D]/6 px-3.5 py-1 text-xs tracking-wide text-[#FF8A3D]/70 transition hover:border-[#FF8A3D]/55 hover:bg-[#FF8A3D]/12 hover:text-[#FF8A3D]/95"
+                  className="rounded-full border border-[#FF8A3D]/40 bg-[#FF8A3D]/10 px-3.5 py-1 text-xs tracking-wide text-[#FF8A3D]/85 transition hover:border-[#FF8A3D]/65 hover:bg-[#FF8A3D]/18 hover:text-[#FF8A3D]"
                 >
                   {tag}
                 </span>

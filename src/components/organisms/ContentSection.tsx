@@ -1,5 +1,6 @@
 import SectionHeading from "../molecules/SectionHeading";
 import ContentCard from "../molecules/ContentCard";
+import { sectionBackgrounds } from "../../tokens/sectionBackgrounds";
 
 const cards = [
   {
@@ -8,11 +9,13 @@ const cards = [
     title: "Catch Me Live",
     description:
       "Tune in for variety streams, horror game nights, and unhinged reactions. Live every week — check the schedule on Twitch.",
-    cta: "Follow on Twitch",
+    cta: "Watch on Twitch",
     href: "https://twitch.tv/valashibbs",
-    accent: "from-purple-600/20 to-purple-600/5",
-    border: "border-purple-500/20 hover:border-purple-500/50",
-    ctaClass: "bg-[#7B3FF2] hover:bg-[#6d35e0] text-white shadow-lg shadow-[#7B3FF2]/30",
+    accent: "from-[#7B3FF2]/30 via-purple-600/10 to-[#FF2D95]/10",
+    border: "border-purple-500/30 hover:border-purple-400/60",
+    ctaClass: "bg-gradient-to-r from-[#7B3FF2] to-[#9B5FF2] hover:from-[#8B4FF2] hover:to-[#AB6FF2] text-white shadow-lg shadow-[#7B3FF2]/40",
+    secondaryCta: "Watch on Kick",
+    secondaryHref: "https://kick.com/valashibbs",
   },
   {
     emoji: "🎮",
@@ -22,36 +25,53 @@ const cards = [
       "Horror, RPGs, indie gems, and games too cursed to name. If it exists, I'll play it badly and loudly.",
     cta: "Watch Clips",
     href: "https://youtube.com",
-    accent: "from-[#19E3FF]/15 to-[#19E3FF]/5",
-    border: "border-[#19E3FF]/20 hover:border-[#19E3FF]/40",
-    ctaClass: "bg-zinc-700 hover:bg-zinc-600 text-white",
+    accent: "from-[#FF2D95]/25 via-[#FF6B35]/10 to-[#FF2D95]/5",
+    border: "border-[#FF2D95]/30 hover:border-[#FF6B35]/50",
+    ctaClass: "bg-gradient-to-r from-[#FF2D95] to-[#FF6B35] hover:from-[#FF3FA0] hover:to-[#FF7A45] text-white shadow-lg shadow-[#FF2D95]/30",
   },
   {
-    emoji: "💬",
     label: "Community",
-    title: "Join the Chaos",
+    title: "Pug Empire",
+    image: "/images/PUG_Animated.gif",
+    imageAlt: "Rupert the pug",
     description:
-      "A welcoming community of fellow scream-enthusiasts. Come say hi, share memes, and suffer horror games together.",
-    cta: "Join Discord",
-    href: "https://discord.gg",
-    accent: "from-[#FF2D95]/15 to-[#FF2D95]/5",
-    border: "border-[#FF2D95]/20 hover:border-[#FF2D95]/40",
-    ctaClass: "bg-zinc-700 hover:bg-zinc-600 text-white",
+      "A gloriously chaotic misfit crew. Games, memes, jump scares, and Rupert judging your every move. Come join the chaos.",
+    cta: "Join the Discord",
+    href: "https://discord.gg/DmG84nFmdY",
+    accent: "from-[#1a2a14]/70 to-[#0e1a0e]/40",
+    border: "border-[#3a5c2a]/25 hover:border-[#3a5c2a]/50",
+    ctaClass: "bg-[#5865F2] hover:bg-[#6b77f5] text-white shadow-lg shadow-[#5865F2]/25",
   },
 ];
 
 export default function ContentSection() {
   return (
-    <section id="content" className="relative overflow-hidden bg-[#070B14] px-6 py-24">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-20 -left-12 h-[500px] w-[500px] glow-indigo" />
-      <div className="pointer-events-none absolute -bottom-16 -right-12 h-[420px] w-[420px] glow-fuchsia" />
+    <section
+      id="content"
+      className="relative overflow-hidden px-6 py-24"
+      style={{ background: [...sectionBackgrounds.content].join(", ") }}
+    >
+      {/* Hero texture echo — same image at very low opacity so hexagons/haze carry through */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          opacity: 0.08,
+          mixBlendMode: "soft-light",
+        }}
+      />
       <div className="mx-auto max-w-5xl relative z-10">
         <SectionHeading label="Content" title="What I Do" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => (
-            <ContentCard key={card.label} {...card} />
-          ))}
+        {/* Subtle scrim behind cards so they read clearly against the colorful bg */}
+        <div className="relative">
+          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-black/20" />
+          <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((card) => (
+              <ContentCard key={card.label} {...card} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

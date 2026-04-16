@@ -1,5 +1,5 @@
 import Button from "../atoms/Button";
-import { TwitchIcon, SpotifyIcon, ChevronDownIcon } from "../atoms/icons";
+import { TwitchIcon, SpotifyIcon, KickIcon, ChevronDownIcon } from "../atoms/icons";
 
 export default function HeroSection() {
   return (
@@ -50,6 +50,7 @@ export default function HeroSection() {
         </div>
 
         <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
+          {/* Primary: Twitch — TODO: replace URL with your Twitch channel */}
           <Button
             href="https://twitch.tv/valashibbs"
             variant="primary"
@@ -58,14 +59,26 @@ export default function HeroSection() {
           >
             Watch on Twitch
           </Button>
-          <Button
-            href="https://open.spotify.com"
-            variant="ghost"
-            icon={<SpotifyIcon size={18} />}
-            className="justify-center border-[#19E3FF]/25 text-[#19E3FF]/80 hover:border-[#19E3FF]/50 hover:bg-[#19E3FF]/5 hover:text-[#19E3FF]"
+          {/* Secondary: scrolls to the on-page music/Spotify section */}
+          <a
+            href="#music"
+            className="inline-flex items-center justify-center gap-2 rounded-full border bg-zinc-800/60 px-7 py-3 text-base font-semibold text-[#19E3FF]/80 backdrop-blur transition border-[#19E3FF]/25 hover:border-[#19E3FF]/50 hover:bg-[#19E3FF]/5 hover:text-[#19E3FF] active:scale-95"
           >
+            <SpotifyIcon size={18} />
             Listen to Music
-          </Button>
+          </a>
+        </div>
+
+        {/* Tertiary: Kick pill — intentional but clearly secondary to Twitch */}
+        <div className="mt-6 flex justify-center">
+          <a
+            href="https://kick.com/valashibbs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-[#53FC18]/25 bg-zinc-900/70 px-5 py-2 text-sm font-medium text-zinc-300 backdrop-blur transition hover:border-[#53FC18]/50 hover:bg-zinc-800/80 hover:text-white active:scale-95"
+          >
+            <span>Also live on <span className="font-semibold text-[#53FC18]">Kick</span></span>
+          </a>
         </div>
       </div>
 

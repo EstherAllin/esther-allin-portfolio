@@ -42,6 +42,14 @@ export function DiscordIcon({ size = 20 }: IconProps) {
   );
 }
 
+export function KickIcon({ size = 20 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4 2h3.5v8.2l5.8-8.2H18l-6.8 9.2 7.2 10.8h-4.8L8 13.8V22H4V2z" />
+    </svg>
+  );
+}
+
 export function ChevronDownIcon({ size = 20 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="currentColor">

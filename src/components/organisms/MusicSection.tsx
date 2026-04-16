@@ -1,5 +1,7 @@
 import SectionHeading from "../molecules/SectionHeading";
+import SpotifyEmbed from "../molecules/SpotifyEmbed";
 import { SpotifyIcon } from "../atoms/icons";
+import { sectionBackgrounds } from "../../tokens/sectionBackgrounds";
 
 const featuredTrack = {
   label: "Latest Single",
@@ -44,11 +46,22 @@ const cardGradients = [
 
 export default function MusicSection() {
   return (
-    <section id="music" className="relative overflow-hidden bg-[#111827] px-6 py-20">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-24 -left-8 h-[560px] w-[560px] glow-indigo" />
-      <div className="pointer-events-none absolute -bottom-20 -right-8 h-[460px] w-[460px] glow-fuchsia" />
-      <div className="pointer-events-none absolute top-1/2 right-1/3 h-[300px] w-[300px] -translate-y-1/2 glow-purple" />
+    <section
+      id="music"
+      className="relative overflow-hidden px-6 py-20"
+      style={{ background: [...sectionBackgrounds.music].join(", ") }}
+    >
+      {/* Hero texture echo */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          opacity: 0.08,
+          mixBlendMode: "soft-light",
+        }}
+      />
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <SectionHeading
@@ -57,6 +70,14 @@ export default function MusicSection() {
           subtitle="Original tracks, sonic experiments, and covers. All on Spotify."
           accent="purple"
         />
+
+        {/* Spotify embed */}
+        <div className="mb-10">
+          <SpotifyEmbed
+            spotifyUrl="https://open.spotify.com/embed/artist/46mozgeLDTOlfF5dMbPGuV"
+            title="ValaShibbs on Spotify"
+          />
+        </div>
 
         {/* Featured track — hero card */}
         <div className="mb-8 overflow-hidden rounded-2xl border border-purple-500/20 bg-gradient-to-br from-zinc-800/80 to-zinc-900/80">
