@@ -25,9 +25,9 @@ const cards = [
       "Horror, RPGs, indie gems, and games too cursed to name. If it exists, I'll play it badly and loudly.",
     cta: "Watch Clips",
     href: "https://youtube.com",
-    accent: "from-[#FF2D95]/25 via-[#FF6B35]/10 to-[#FF2D95]/5",
-    border: "border-[#FF2D95]/30 hover:border-[#FF6B35]/50",
-    ctaClass: "bg-gradient-to-r from-[#FF2D95] to-[#FF6B35] hover:from-[#FF3FA0] hover:to-[#FF7A45] text-white shadow-lg shadow-[#FF2D95]/30",
+    accent: "from-[#FF2D95]/15 via-[#FF6B35]/6 to-[#FF2D95]/4",
+    border: "border-[#FF2D95]/20 hover:border-[#FF6B35]/35",
+    ctaClass: "bg-gradient-to-r from-[#FF2D95] to-[#FF6B35] hover:from-[#FF3FA0] hover:to-[#FF7A45] text-white shadow-lg shadow-[#FF2D95]/20",
   },
   {
     label: "Community",
@@ -63,13 +63,16 @@ export default function ContentSection() {
         }}
       />
       <div className="mx-auto max-w-5xl relative z-10">
-        <SectionHeading label="Content" title="What I Do" />
-        {/* Subtle scrim behind cards so they read clearly against the colorful bg */}
+        <SectionHeading
+          label="Content"
+          title="What I Do"
+          titleClass="tracking-wide bg-gradient-to-r from-white via-purple-100 to-fuchsia-200 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(168,85,247,0.18)]"
+        />
         <div className="relative">
-          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-black/20" />
+          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-black/5" />
           <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cards.map((card) => (
-              <ContentCard key={card.label} {...card} />
+            {cards.map((card, i) => (
+              <ContentCard key={card.label} {...card} isPrimary={i === 0} />
             ))}
           </div>
         </div>

@@ -15,12 +15,10 @@ const palettes = {
 
   /** Warm, personal. Magenta + purple + orange. Used for About. */
   warmMagenta: [
-    "radial-gradient(ellipse at 30% 40%, rgba(236,72,153,0.38) 0%, transparent 48%)",
-    "radial-gradient(ellipse at 8% 60%, rgba(168,85,247,0.20) 0%, transparent 38%)",
-    "radial-gradient(ellipse at 75% 55%, rgba(168,85,247,0.28) 0%, transparent 46%)",
-    "radial-gradient(ellipse at 55% 85%, rgba(249,115,22,0.12) 0%, transparent 36%)",
-    "radial-gradient(ellipse at 50% 10%, rgba(236,72,153,0.14) 0%, transparent 40%)",
-    "linear-gradient(135deg, #200f32 0%, #2a1240 42%, #32164a 100%)",
+    "radial-gradient(ellipse at 85% 15%, rgba(236,72,153,0.11) 0%, transparent 55%)",
+    "radial-gradient(ellipse at 8% 88%, rgba(99,102,241,0.09) 0%, transparent 50%)",
+    "radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 45%)",
+    "linear-gradient(160deg, #0b0619 0%, #100822 45%, #0c071b 100%)",
   ],
 
   /** Cool, structured. Cyan + indigo + blue. Used for What I Do. */

@@ -12,6 +12,7 @@ interface ContentCardProps {
   ctaClass: string;
   secondaryCta?: string;
   secondaryHref?: string;
+  isPrimary?: boolean;
 }
 
 export default function ContentCard({
@@ -28,10 +29,15 @@ export default function ContentCard({
   ctaClass,
   secondaryCta,
   secondaryHref,
+  isPrimary = false,
 }: ContentCardProps) {
   return (
     <div
-      className={`group relative flex flex-col gap-4 rounded-2xl border bg-gradient-to-br p-7 transition-all duration-300 bg-zinc-900 ${border} ${accent}`}
+      className={`group relative flex flex-col gap-4 rounded-2xl border bg-gradient-to-br p-7 transition-all duration-300 ease-out bg-zinc-900 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.28)] ${
+        isPrimary
+          ? "shadow-[0_0_64px_rgba(123,63,242,0.12),0_14px_40px_rgba(123,63,242,0.09),0_8px_20px_rgba(0,0,0,0.20)] scale-[1.03]"
+          : "shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+      } ${border} ${accent}`}
     >
       {image ? (
         <img
@@ -56,7 +62,7 @@ export default function ContentCard({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`inline-flex w-fit items-center rounded-full px-5 py-2.5 text-sm font-semibold transition active:scale-95 ${ctaClass}`}
+          className={`inline-flex w-fit items-center rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ease-out hover:scale-[1.04] active:scale-95 ${ctaClass}`}
         >
           {cta}
         </a>

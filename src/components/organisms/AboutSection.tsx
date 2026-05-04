@@ -17,6 +17,9 @@ export default function AboutSection() {
       className="relative overflow-hidden px-6 py-20"
       style={{ background: [...sectionBackgrounds.about].join(", ") }}
     >
+      {/* Depth overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25 pointer-events-none" />
+
       {/* Hero texture echo */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -50,7 +53,7 @@ export default function AboutSection() {
             <h2 className="text-3xl font-black leading-tight text-[#C8CDD5] sm:text-4xl">
               The Scream Behind the Stream
             </h2>
-            <p className="text-lg font-medium italic text-[#a78bfa]/80 tracking-wide">
+            <p className="text-lg font-medium italic text-fuchsia-300/90 tracking-normal drop-shadow-[0_0_6px_rgba(255,0,128,0.25)]">
               Sarcastic. Slightly feral. Screaming at horror games like it&apos;s cardio.
             </p>
             <p className="max-w-lg text-base leading-relaxed text-zinc-400">
@@ -80,7 +83,7 @@ export default function AboutSection() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col items-center gap-0.5 rounded-lg border border-violet-400/35 bg-violet-600/15 px-4 py-2 transition hover:border-violet-400/55 hover:bg-violet-600/25 md:items-start"
+                  className="flex flex-col items-center gap-0.5 rounded-lg bg-purple-500/15 border border-purple-300/50 text-white backdrop-blur-md shadow-[0_0_8px_rgba(168,85,247,0.15)] px-4 py-2 transition-all duration-200 hover:bg-purple-500/25 hover:border-purple-200 hover:shadow-[0_0_12px_rgba(168,85,247,0.3)] hover:scale-105 md:items-start"
                 >
                   <span className="text-[10px] uppercase tracking-widest text-violet-300/65">{stat.label}</span>
                   <span className="text-sm font-bold text-white">{stat.value}</span>

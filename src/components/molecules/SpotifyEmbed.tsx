@@ -26,7 +26,7 @@ export default function SpotifyEmbed({
   const embedUrl = toEmbedUrl(spotifyUrl);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/60">
+    <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-transparent">
       {/* Header row */}
       <div className="flex items-center gap-2.5 border-b border-white/5 px-5 py-3">
         <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-green-500">

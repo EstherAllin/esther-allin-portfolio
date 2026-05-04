@@ -10,19 +10,23 @@ interface SectionLabelProps {
   label: string;
   accent?: Accent;
   withLines?: boolean;
+  lineClass?: string;
+  labelClass?: string;
 }
 
 export default function SectionLabel({
   label,
   accent = "purple",
   withLines = false,
+  lineClass,
+  labelClass,
 }: SectionLabelProps) {
   const { line, text } = accentClasses[accent];
   return (
     <div className="flex items-center gap-3">
-      {withLines && <span className={`h-px w-8 ${line}`} />}
-      <span className={`text-sm font-semibold uppercase tracking-widest ${text}`}>{label}</span>
-      {withLines && <span className={`h-px w-8 ${line}`} />}
+      {withLines && <span className={`h-px w-8 ${line} ${lineClass ?? ""}`} />}
+      <span className={`text-sm font-semibold uppercase tracking-widest ${text} ${labelClass ?? ""}`}>{label}</span>
+      {withLines && <span className={`h-px w-8 ${line} ${lineClass ?? ""}`} />}
     </div>
   );
 }
