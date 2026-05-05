@@ -23,7 +23,7 @@ export default function SocialLinkItem({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-5 rounded-2xl px-7 py-5 font-semibold text-white shadow-lg transition active:scale-[0.98] ${bg} ${shadow}`}
+      className={`flex items-center gap-5 rounded-2xl px-7 py-5 font-semibold text-white backdrop-blur-md transition-all duration-200 hover:-translate-y-1 active:scale-[0.98] ${bg} ${shadow}`}
     >
       <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-white/15">
         {icon}

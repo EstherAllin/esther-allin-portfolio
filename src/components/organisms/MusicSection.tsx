@@ -2,7 +2,47 @@ import SectionHeading from "../molecules/SectionHeading";
 import SpotifyEmbed from "../molecules/SpotifyEmbed";
 import { SpotifyIcon } from "../atoms/icons";
 import { sectionBackgrounds } from "../../tokens/sectionBackgrounds";
-import type { MusicData } from "../../lib/getSpotifyData";
+
+const ARTIST_URL = "https://open.spotify.com/artist/46mozgeLDTOlfF5dMbPGuV";
+
+const featuredTrack = {
+  label: "Latest Single",
+  title: "Dick Pic Pokedex",
+  description:
+    "Gotta catch 'em all — whether you want to or not. A chaotic, unhinged banger straight from the Vala archives.",
+  tags: ["Electronic", "Chaotic"],
+  duration: "3:34",
+  year: "2026",
+  spotifyUrl: "https://open.spotify.com/album/69UR43mi6fF38JRseST0du",
+  image: "https://i.scdn.co/image/ab67616d00001e02fc69a885e2e2ec6f3ea5d714",
+};
+
+const releases = [
+  {
+    title: "Five-Head Energy",
+    type: "Single · 2026",
+    description: "A running joke turned weaponized. Big brain energy… whether it works or not.",
+    tags: ["Electronic", "Energetic"],
+    spotifyUrl: "https://open.spotify.com/track/4XJlO4afGFg66lqfmuZGGL",
+    image: "https://i.scdn.co/image/ab67616d00001e023eb5a53e4bcb86c77dec9a5e",
+  },
+  {
+    title: "Vala Wants Wood",
+    type: "Single · 2026",
+    description: "Survival crafting chaos. If there's a tree, I'm taking it. All of it.",
+    tags: ["Comedy", "Chaotic"],
+    spotifyUrl: "https://open.spotify.com/track/4CXzYzY3hheQQ32oHKvMhS",
+    image: "https://i.scdn.co/image/ab67616d00001e025c26fe662ae1effe66a725f3",
+  },
+  {
+    title: "In Waves",
+    type: "Single · 2026",
+    description: "Some things don't hit all at once. They come back… in waves.",
+    tags: ["Emotional", "Electronic"],
+    spotifyUrl: "https://open.spotify.com/track/6S4dcgjGKgWXVgzkORgGbb",
+    image: "https://i.scdn.co/image/ab67616d00001e02e10a476dc78ad345ff6c591c",
+  },
+];
 
 const cardGradients = [
   "from-[#FF2D95]/20 to-[#7B3FF2]/20",
@@ -10,7 +50,7 @@ const cardGradients = [
   "from-[#7B3FF2]/20 to-[#FF2D95]/20",
 ];
 
-export default function MusicSection({ featuredTrack, releases }: MusicData) {
+export default function MusicSection() {
   return (
     <section
       id="music"
@@ -46,9 +86,18 @@ export default function MusicSection({ featuredTrack, releases }: MusicData) {
           <div className="flex flex-col sm:flex-row">
             {/* Album art */}
             <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-[#7B3FF2]/35 via-[#FF2D95]/20 to-[#19E3FF]/15 sm:h-auto sm:w-52">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="text-white/20">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-              </svg>
+              {featuredTrack.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featuredTrack.image}
+                  alt={featuredTrack.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="text-white/20">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                </svg>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent sm:bg-gradient-to-r" />
             </div>
 
@@ -80,27 +129,17 @@ export default function MusicSection({ featuredTrack, releases }: MusicData) {
               </div>
               <div className="flex items-center gap-4">
                 <a
-                  href={featuredTrack.spotify}
+                  href={featuredTrack.spotifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-full bg-green-500 px-6 py-2.5 text-sm font-bold text-black shadow-[0_0_16px_rgba(74,222,128,0.25)] transition-all duration-200 hover:bg-green-400 hover:shadow-[0_0_22px_rgba(74,222,128,0.35)] hover:scale-[1.03] active:scale-95"
                 >
                   <SpotifyIcon size={16} />
-                  Play on Spotify
+                  Listen on Spotify
                 </a>
                 <span className="text-xs text-zinc-600">{featuredTrack.duration}</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Spotify embed */}
-        <div className="mb-10 mx-auto max-w-[640px] opacity-85">
-          <div className="overflow-hidden rounded-[20px] shadow-[0_0_28px_rgba(123,63,242,0.08),0_6px_20px_rgba(0,0,0,0.22)] bg-gradient-to-br from-zinc-900/80 to-zinc-950/80">
-            <SpotifyEmbed
-              spotifyUrl="https://open.spotify.com/embed/artist/46mozgeLDTOlfF5dMbPGuV"
-              title="ValaShibbs on Spotify"
-            />
           </div>
         </div>
 
@@ -112,50 +151,57 @@ export default function MusicSection({ featuredTrack, releases }: MusicData) {
           {releases.map((release, i) => (
             <div
               key={i}
-              className="flex flex-col gap-3 rounded-xl card-surface p-5 shadow-[0_4px_16px_rgba(0,0,0,0.20)] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(0,0,0,0.30)]"
+              className="flex flex-col overflow-hidden rounded-xl card-surface shadow-[0_4px_16px_rgba(0,0,0,0.20)] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(0,0,0,0.30)]"
             >
-              <div
-                className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${cardGradients[i % cardGradients.length]}`}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-white/50">
-                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-                </svg>
+              {/* Album art */}
+              <div className={`relative aspect-square w-full overflow-hidden bg-gradient-to-br ${cardGradients[i % cardGradients.length]}`}>
+                {release.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={release.image}
+                    alt={release.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
               </div>
-              <div>
-                <div className="mb-0.5 text-xs text-zinc-600">{release.type}</div>
-                <h4 className="font-bold text-white">{release.title}</h4>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-500">{release.description}</p>
-              </div>
-              <div className="mt-auto flex flex-wrap gap-1.5">
-                {release.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded border border-zinc-700/60 px-2 py-0.5 text-xs text-zinc-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              {release.spotify ? (
+              {/* Info */}
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <div>
+                  <div className="mb-0.5 text-xs text-zinc-600">{release.type}</div>
+                  <h4 className="font-bold text-white">{release.title}</h4>
+                  <p className="mt-1 text-xs leading-relaxed text-zinc-500">{release.description}</p>
+                </div>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
+                  {release.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded border border-zinc-700/60 px-2 py-0.5 text-xs text-zinc-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <a
-                  href={release.spotify}
+                  href={release.spotifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-medium text-green-400 hover:text-green-300"
+                  className="mt-1 text-xs font-medium text-green-400 hover:text-green-300"
                 >
-                  Play on Spotify →
+                  Listen on Spotify →
                 </a>
-              ) : (
-                <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-600">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-purple-500" />
-                  </span>
-                  Coming Soon
-                </span>
-              )}
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Spotify embed */}
+        <div className="mb-10 mx-auto max-w-[640px] opacity-85">
+          <div className="overflow-hidden rounded-[20px] shadow-[0_0_28px_rgba(123,63,242,0.08),0_6px_20px_rgba(0,0,0,0.22)] bg-gradient-to-br from-zinc-900/80 to-zinc-950/80">
+            <SpotifyEmbed
+              spotifyUrl="https://open.spotify.com/embed/artist/46mozgeLDTOlfF5dMbPGuV"
+              title="ValaShibbs on Spotify"
+            />
+          </div>
         </div>
 
         {/* Spotify follow CTA */}
@@ -170,7 +216,7 @@ export default function MusicSection({ featuredTrack, releases }: MusicData) {
             </div>
           </div>
           <a
-            href="https://open.spotify.com"
+            href={ARTIST_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-shrink-0 rounded-full bg-green-500 px-5 py-2 text-sm font-bold text-black transition hover:bg-green-400 active:scale-95"

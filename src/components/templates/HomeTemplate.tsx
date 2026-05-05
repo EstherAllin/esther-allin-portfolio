@@ -5,9 +5,8 @@ import ContentSection from "../organisms/ContentSection";
 import MusicSection from "../organisms/MusicSection";
 import LinksSection from "../organisms/LinksSection";
 import FooterSection from "../organisms/FooterSection";
-import type { MusicData } from "../../lib/getSpotifyData";
 
-export default function HomeTemplate({ musicData }: { musicData: MusicData }) {
+export default function HomeTemplate() {
   return (
     <>
       <NavBar />
@@ -15,7 +14,7 @@ export default function HomeTemplate({ musicData }: { musicData: MusicData }) {
       <HeroSection />
       <AboutSection />
       <ContentSection />
-      <MusicSection {...musicData} />
+      <MusicSection />
       <LinksSection />
       <FooterSection />
     </main>

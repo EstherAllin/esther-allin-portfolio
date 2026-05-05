@@ -52,6 +52,14 @@ const palettes = {
     "linear-gradient(180deg, #070B14 0%, #070B14 100%)",
   ],
 
+  /** Smoky branded dark. Purple/magenta top-center, cyan lower-left. Used for Links. */
+  smokyChaos: [
+    "radial-gradient(ellipse at 50% -5%, rgba(255,45,149,0.14) 0%, transparent 50%)",
+    "radial-gradient(ellipse at 50% 0%, rgba(123,63,242,0.12) 0%, transparent 55%)",
+    "radial-gradient(ellipse at 8% 92%, rgba(25,227,255,0.09) 0%, transparent 44%)",
+    "linear-gradient(180deg, #080B18 0%, #07091A 55%, #070B14 100%)",
+  ],
+
 } as const;
 
 // ─── Section Assignments ────────────────────────────────────────────────────
@@ -62,7 +70,7 @@ export const sectionBackgrounds = {
   about:   palettes.coolCyan,
   content: palettes.warmMagenta,
   music:   palettes.warmPink,
-  links:   palettes.dark,
+  links:   palettes.smokyChaos,
 } satisfies Record<string, readonly string[]>;
 
 // Re-export palettes so you can use them directly in assignments
