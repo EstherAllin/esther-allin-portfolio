@@ -13,6 +13,7 @@ interface ContentCardProps {
   secondaryCta?: string;
   secondaryHref?: string;
   isPrimary?: boolean;
+  isSupport?: boolean;
 }
 
 export default function ContentCard({
@@ -30,15 +31,22 @@ export default function ContentCard({
   secondaryCta,
   secondaryHref,
   isPrimary = false,
+  isSupport = false,
 }: ContentCardProps) {
   return (
     <div
-      className={`group relative flex flex-col gap-4 rounded-2xl border bg-gradient-to-br p-7 transition-all duration-300 ease-out bg-zinc-900 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.28)] ${
+      className={`group relative flex flex-col gap-4 rounded-2xl border bg-gradient-to-br transition-all duration-300 ease-out bg-zinc-900 ${
         isPrimary
-          ? "shadow-[0_0_64px_rgba(123,63,242,0.12),0_14px_40px_rgba(123,63,242,0.09),0_8px_20px_rgba(0,0,0,0.20)] scale-[1.03]"
-          : "shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+          ? "p-8 hover:-translate-y-2 shadow-[0_0_72px_rgba(123,63,242,0.22),0_16px_44px_rgba(123,63,242,0.12),0_8px_24px_rgba(0,0,0,0.24)] hover:shadow-[0_0_100px_rgba(123,63,242,0.34),0_24px_56px_rgba(123,63,242,0.18),0_10px_32px_rgba(0,0,0,0.32)]"
+          : isSupport
+          ? "p-7 hover:-translate-y-1 shadow-[0_6px_22px_rgba(0,0,0,0.14)] hover:shadow-[0_14px_36px_rgba(0,0,0,0.22),0_0_22px_rgba(99,102,241,0.12)]"
+          : "p-7 hover:-translate-y-1.5 shadow-[0_10px_32px_rgba(0,0,0,0.16)] hover:shadow-[0_18px_44px_rgba(0,0,0,0.24),0_0_28px_rgba(255,45,149,0.10)]"
       } ${border} ${accent}`}
     >
+      {/* Primary top accent line */}
+      {isPrimary && (
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-purple-400/65 to-transparent" />
+      )}
       {image ? (
         <img
           src={image}
@@ -51,12 +59,18 @@ export default function ContentCard({
         <span className="text-3xl">{emoji}</span>
       )}
       <div>
-        <span className="mb-1 block text-xs font-semibold uppercase tracking-widest text-zinc-500">
+        <span className={`mb-1 block text-xs font-semibold uppercase tracking-widest ${
+          isPrimary ? "text-purple-300/80" : isSupport ? "text-zinc-400/65" : "text-zinc-400"
+        }`}>
           {label}
         </span>
-        <h3 className="text-xl font-bold text-white">{title}</h3>
+        <h3 className={`font-bold text-white ${
+          isPrimary ? "text-2xl" : "text-xl"
+        }`}>{title}</h3>
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-zinc-400">{description}</p>
+      <p className={`flex-1 text-sm leading-relaxed ${
+        isSupport ? "text-zinc-300/85" : "text-zinc-300"
+      }`}>{description}</p>
       <div className="flex flex-col gap-2">
         <a
           href={href}

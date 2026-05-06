@@ -29,15 +29,15 @@ body {
 }
 
 @utility glow-purple {
-  background: radial-gradient(circle, rgba(123, 63, 242, 0.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(123, 63, 242, 0.38) 0%, transparent 70%);
 }
 
 @utility glow-fuchsia {
-  background: radial-gradient(circle, rgba(255, 45, 149, 0.20) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 45, 149, 0.28) 0%, transparent 70%);
 }
 
 @utility glow-indigo {
-  background: radial-gradient(circle, rgba(25, 227, 255, 0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(25, 227, 255, 0.18) 0%, transparent 70%);
 }
 
 @layer components {
@@ -54,11 +54,56 @@ body {
   }
 
   .card-surface:hover {
-    border-color: rgba(123, 63, 242, 0.30);
+    border-color: rgba(123, 63, 242, 0.34);
     box-shadow:
-      0 0 0 1px rgba(123, 63, 242, 0.16),
-      0 8px 32px rgba(0, 0, 0, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      0 0 0 1px rgba(123, 63, 242, 0.22),
+      0 8px 36px rgba(0, 0, 0, 0.60),
+      0 0 32px rgba(123, 63, 242, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
     background: rgba(17, 24, 39, 0.96);
+  }
+}
+
+/* ─── Ambient motion keyframes ──────────────────────────────────────────── */
+
+@keyframes ambient-drift-a {
+  0%,  100% { transform: translate(0px,    0px)   scale(1.00); }
+  30%        { transform: translate(22px,  -16px) scale(1.03); }
+  65%        { transform: translate(-14px,  12px) scale(0.97); }
+}
+
+@keyframes ambient-drift-b {
+  0%,  100% { transform: translate(0px,   0px)  scale(1.00); }
+  40%        { transform: translate(-22px, 18px) scale(1.04); }
+  70%        { transform: translate(16px, -10px) scale(0.96); }
+}
+
+@keyframes ambient-drift-c {
+  0%,  100% { transform: translate(0px,   0px)  scale(1.00); }
+  25%        { transform: translate(14px,  20px) scale(1.02); }
+  75%        { transform: translate(-18px,-12px) scale(0.98); }
+}
+
+@utility ambient-drift-1 {
+  animation: ambient-drift-a 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+@utility ambient-drift-2 {
+  animation: ambient-drift-b 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+@utility ambient-drift-3 {
+  animation: ambient-drift-c 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-drift-1,
+  .ambient-drift-2,
+  .ambient-drift-3 {
+    animation: none !important;
   }
 }

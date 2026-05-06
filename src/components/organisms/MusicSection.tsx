@@ -57,8 +57,13 @@ export default function MusicSection() {
       className="relative overflow-hidden px-6 py-24 pt-28"
       style={{ background: [...sectionBackgrounds.music].join(", ") }}
     >
-      {/* Transition fade from previous section */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/20 to-transparent" />
+      {/* Top seam — fades in from Content's palette base */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#0b1022]/48 to-transparent" />
+      {/* Bottom seam — fades toward Links palette base */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#0d0a1e]/42 to-transparent" />
+      {/* Ambient drift blobs */}
+      <div className="pointer-events-none absolute -top-10 -left-16 h-[400px] w-[400px] glow-fuchsia ambient-drift-3 opacity-55 [animation-delay:1s]" />
+      <div className="pointer-events-none absolute -bottom-10 -right-16 h-[360px] w-[360px] glow-indigo ambient-drift-1 opacity-40 [animation-delay:11s]" />
       {/* Hero texture echo */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -66,7 +71,7 @@ export default function MusicSection() {
           backgroundImage: "url('/images/hero-bg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center top",
-          opacity: 0.08,
+          opacity: 0.14,
           mixBlendMode: "soft-light",
         }}
       />
@@ -82,7 +87,7 @@ export default function MusicSection() {
         />
 
         {/* Featured track — hero card */}
-        <div className="mb-10 overflow-hidden rounded-2xl border border-purple-500/30 bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 shadow-[0_0_48px_rgba(123,63,242,0.12),0_12px_36px_rgba(0,0,0,0.30)] transition-all duration-300 ease-out hover:-translate-y-1">
+        <div className="mb-10 overflow-hidden rounded-2xl border border-purple-400/40 bg-gradient-to-br from-zinc-800/80 to-zinc-900/85 shadow-[0_0_56px_rgba(123,63,242,0.22),0_0_24px_rgba(255,45,149,0.10),0_12px_36px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_72px_rgba(123,63,242,0.32),0_0_32px_rgba(255,45,149,0.14),0_16px_48px_rgba(0,0,0,0.40)]">
           <div className="flex flex-col sm:flex-row">
             {/* Album art */}
             <div className="relative flex h-48 w-full flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-[#7B3FF2]/35 via-[#FF2D95]/20 to-[#19E3FF]/15 sm:h-auto sm:w-52">
@@ -105,7 +110,7 @@ export default function MusicSection() {
             <div className="flex flex-1 flex-col justify-between gap-4 p-7 sm:p-9">
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full bg-purple-500/20 px-3 py-0.5 text-xs font-bold uppercase tracking-widest text-purple-300">
+                  <span className="rounded-full bg-purple-500/30 px-3 py-0.5 text-xs font-bold uppercase tracking-widest text-purple-200">
                     {featuredTrack.label}
                   </span>
                   <span className="text-xs text-zinc-600">{featuredTrack.year}</span>
@@ -144,14 +149,14 @@ export default function MusicSection() {
         </div>
 
         {/* More releases */}
-        <h4 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-zinc-400">
+        <h4 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-zinc-300">
           More Releases
         </h4>
         <div className="mb-10 grid gap-4 md:grid-cols-3">
           {releases.map((release, i) => (
             <div
               key={i}
-              className="flex flex-col overflow-hidden rounded-xl card-surface shadow-[0_4px_16px_rgba(0,0,0,0.20)] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(0,0,0,0.30)]"
+              className="flex flex-col overflow-hidden rounded-xl card-surface shadow-[0_4px_20px_rgba(0,0,0,0.28),0_0_0_1px_rgba(255,255,255,0.04)] transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.40),0_0_24px_rgba(123,63,242,0.14)]"
             >
               {/* Album art */}
               <div className={`relative aspect-square w-full overflow-hidden bg-gradient-to-br ${cardGradients[i % cardGradients.length]}`}>
@@ -167,15 +172,15 @@ export default function MusicSection() {
               {/* Info */}
               <div className="flex flex-1 flex-col gap-2 p-4">
                 <div>
-                  <div className="mb-0.5 text-xs text-zinc-600">{release.type}</div>
+                  <div className="mb-0.5 text-xs text-zinc-500">{release.type}</div>
                   <h4 className="font-bold text-white">{release.title}</h4>
-                  <p className="mt-1 text-xs leading-relaxed text-zinc-500">{release.description}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-zinc-400">{release.description}</p>
                 </div>
                 <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
                   {release.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded border border-zinc-700/60 px-2 py-0.5 text-xs text-zinc-600"
+                      className="rounded border border-zinc-600/60 px-2 py-0.5 text-xs text-zinc-500"
                     >
                       {tag}
                     </span>
@@ -195,8 +200,8 @@ export default function MusicSection() {
         </div>
 
         {/* Spotify embed */}
-        <div className="mb-10 mx-auto max-w-[640px] opacity-85">
-          <div className="overflow-hidden rounded-[20px] shadow-[0_0_28px_rgba(123,63,242,0.08),0_6px_20px_rgba(0,0,0,0.22)] bg-gradient-to-br from-zinc-900/80 to-zinc-950/80">
+        <div className="mb-10 mx-auto max-w-[640px]">
+          <div className="overflow-hidden rounded-[20px] shadow-[0_0_48px_rgba(123,63,242,0.18),0_0_24px_rgba(255,45,149,0.08),0_8px_24px_rgba(0,0,0,0.30)] bg-gradient-to-br from-zinc-800/70 to-zinc-950/80 ring-1 ring-purple-500/20">
             <SpotifyEmbed
               spotifyUrl="https://open.spotify.com/embed/artist/46mozgeLDTOlfF5dMbPGuV"
               title="ValaShibbs on Spotify"

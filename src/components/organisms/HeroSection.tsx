@@ -14,14 +14,16 @@ export default function HeroSection() {
       }}
     >
       {/* Overlay — softer on the image, fully transparent at bottom to blend into next section */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 via-[70%] to-transparent" />
+      {/* Bottom seam — deep purple fade into About palette base */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#0f0b24]/80 to-transparent" />
 
-      {/* Cyan glow — left frame, tighter and closer */}
-      <div className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 glow-indigo" />
-      {/* Magenta glow — right frame, tighter and closer */}
-      <div className="pointer-events-none absolute -right-20 top-1/2 h-[480px] w-[480px] -translate-y-1/2 glow-fuchsia" />
-      {/* Purple depth — circular, sits low-opacity behind the title */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 opacity-30 glow-purple" />
+      {/* Cyan glow — left frame, drifts slowly */}
+      <div className="pointer-events-none absolute -left-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 glow-indigo ambient-drift-1" />
+      {/* Magenta glow — right frame, offset phase */}
+      <div className="pointer-events-none absolute -right-20 top-1/2 h-[480px] w-[480px] -translate-y-1/2 glow-fuchsia ambient-drift-2 [animation-delay:6s]" />
+      {/* Purple depth — center, slow drift */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 opacity-30 glow-purple ambient-drift-3 [animation-delay:3s]" />
 
       <div className="relative z-10 flex flex-col items-center">
         {/* Live badge */}
@@ -35,18 +37,18 @@ export default function HeroSection() {
 
         <h1 className="mt-5 text-5xl font-black leading-none tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
           <span className="text-[#E5E7EB] [filter:drop-shadow(0_0_16px_rgba(123,63,242,0.25))]">Vala</span>
-          <span className="bg-gradient-to-r from-[#19E3FF] via-[#7B3FF2] to-[#FF2D95] bg-clip-text text-transparent [filter:drop-shadow(0_0_36px_rgba(123,63,242,0.55))]">
+          <span className="bg-gradient-to-r from-[#FF2D95] via-[#FF6B35] to-[#FFB347] bg-clip-text text-transparent [filter:drop-shadow(0_0_36px_rgba(255,100,53,0.52))]">
             Shibbs
           </span>
         </h1>
 
         {/* Identity pills — each tinted to match its brand-color zone */}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-          <span className="text-xs font-medium text-zinc-500">Variety Screamer</span>
+          <span className="text-xs font-medium text-zinc-400">Variety Screamer</span>
           <span className="text-[#7B3FF2]/50">·</span>
-          <span className="text-xs font-medium text-zinc-500">Gamer</span>
+          <span className="text-xs font-medium text-zinc-400">Gamer</span>
           <span className="text-[#FF2D95]/50">·</span>
-          <span className="text-xs font-medium text-zinc-500">Music Chaos</span>
+          <span className="text-xs font-medium text-zinc-400">Music Chaos</span>
         </div>
 
         <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
