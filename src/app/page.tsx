@@ -280,10 +280,10 @@ export default function Home() {
                 Email
               </p>
               <a
-                href="mailto:shibbs@gmail.com"
+                href="mailto:esther.allin@echoeffect.net"
                 className="text-purple-400 hover:text-purple-300 transition-colors duration-200"
               >
-                shibbs@gmail.com
+                esther.allin@echoeffect.net
               </a>
             </div>
             <div>
