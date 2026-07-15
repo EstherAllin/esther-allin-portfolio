@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "./components/Navbar";
 
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
     <>
       {/* Sticky Navigation */}
       <Navbar />
-      <main className="bg-slate-950 min-h-screen">
+      <main className="bg-slate-950 min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="flex items-center justify-center min-h-screen px-6 pt-14">
         <div className="text-center max-w-3xl">
@@ -36,7 +37,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="scroll-mt-14 px-6 py-24 md:py-32">
+      <section id="about" className="scroll-mt-14 border-t border-slate-800/50 px-6 py-24 md:py-32">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             About Me
@@ -57,50 +58,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* How I Build Section */}
       <section id="skills" className="scroll-mt-14 px-6 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
-            Skills
-          </h2>
-          <div className="space-y-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              How I Build
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              I combine marketing strategy, UX thinking, and modern frontend
+              development to build websites that actually perform.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Development */}
-            <div>
-              <h3 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-4">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
+              <h3 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-5">
                 Development
               </h3>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap gap-2">
                 {[
                   "Next.js",
                   "React",
                   "TypeScript",
-                  "JavaScript",
                   "Tailwind CSS",
-                  "HTML",
-                  "CSS",
+                  "HTML5",
+                  "CSS3",
                   "Git",
                   "GitHub",
                   "Vercel",
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 text-sm font-medium text-purple-300 bg-purple-400/10 border border-purple-400/20 rounded-full"
+                    className="px-3 py-1.5 text-sm font-medium text-purple-300 bg-purple-400/10 border border-purple-400/20 rounded-full"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
-            {/* Strategy & Marketing */}
-            <div>
-              <h3 className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-4">
-                Strategy &amp; Marketing
+
+            {/* Digital Strategy */}
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
+              <h3 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-5">
+                Digital Strategy
               </h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {["SEO", "Analytics", "Content Strategy"].map((skill) => (
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "SEO",
+                  "GEO",
+                  "Analytics",
+                  "Content Strategy",
+                  "Conversion Optimization",
+                  "UX Thinking",
+                  "Accessibility",
+                ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 text-sm font-medium text-purple-300 bg-purple-400/10 border border-purple-400/20 rounded-full"
+                    className="px-3 py-1.5 text-sm font-medium text-purple-300 bg-purple-400/10 border border-purple-400/20 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Collaboration */}
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
+              <h3 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-5">
+                Collaboration
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Client Communication",
+                  "Project Planning",
+                  "Problem Solving",
+                  "Continuous Learning",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 text-sm font-medium text-purple-300 bg-purple-400/10 border border-purple-400/20 rounded-full"
                   >
                     {skill}
                   </span>
@@ -124,50 +161,147 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Harbor Plaza Storage Redesign
-              </h3>
-              <p className="text-slate-400 leading-relaxed flex-1">
-                A storage facility that needed a site people could actually use
-                on their phone, mid-move. I redesigned it with a focus on
-                clearer navigation, better mobile experience, and making it feel
-                like a business worth calling.
-              </p>
-              <span className="mt-6 inline-block text-center px-4 py-2 text-sm font-medium text-slate-600 border border-slate-700 rounded-full">
-                Coming Soon
-              </span>
+            {/* Card 1 — Harbor Plaza Storage */}
+            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200 group">
+              <div className="relative w-full aspect-video overflow-hidden bg-slate-800">
+                <Image
+                  src="/images/projects/harbor-plaza.jpg"
+                  alt="Harbor Plaza Storage website screenshot"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  Harbor Plaza Storage
+                </h3>
+                <p className="text-slate-400 leading-relaxed flex-1">
+                  Modern self-storage website redesigned using Next.js and
+                  Tailwind CSS. Focused on responsive layouts, improved
+                  usability, and clearer customer journeys.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {["Next.js", "Tailwind CSS", "Vercel"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3 mt-5">
+                  <a
+                    href="#"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200"
+                  >
+                    View Live
+                  </a>
+                  <a
+                    href="#"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                ValaShibbs Creator Site
-              </h3>
-              <p className="text-slate-400 leading-relaxed flex-1">
-                A personal brand website for a content creator. Built with
-                Next.js and Tailwind CSS &mdash; clean layout, a look that fits
-                the brand, and content that&apos;s easy to find on any screen.
-              </p>
-              <span className="mt-6 inline-block text-center px-4 py-2 text-sm font-medium text-slate-600 border border-slate-700 rounded-full">
-                Coming Soon
-              </span>
+            {/* Card 2 — ValaShibbs Creator Site */}
+            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200 group">
+              <div className="relative w-full aspect-video overflow-hidden bg-slate-800">
+                <Image
+                  src="/images/projects/valashibbs.jpg"
+                  alt="ValaShibbs creator site screenshot"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  ValaShibbs Creator Site
+                </h3>
+                <p className="text-slate-400 leading-relaxed flex-1">
+                  Personal brand website designed for a content creator. Built
+                  with reusable components, responsive layouts, and custom
+                  branding while balancing personality with performance.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {["Next.js", "Tailwind CSS", "React", "Vercel"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3 mt-5">
+                  <a
+                    href="#"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200"
+                  >
+                    View Live
+                  </a>
+                  <a
+                    href="#"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Card 3 */}
-            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Echo Effect Marketing Work
-              </h3>
-              <p className="text-slate-400 leading-relaxed flex-1">
-                Content strategy, SEO, analytics, social media, and website
-                work &mdash; all running at the same time, for real clients.
-                This is where the marketing background earns its keep.
-              </p>
-              <span className="mt-6 inline-block text-center px-4 py-2 text-sm font-medium text-slate-600 border border-slate-700 rounded-full">
-                Coming Soon
-              </span>
+            {/* Card 3 — Esther Allin Portfolio */}
+            <div className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-purple-400/40 hover:bg-slate-800/60 transition-colors duration-200 group">
+              <div className="relative w-full aspect-video overflow-hidden bg-slate-800">
+                <Image
+                  src="/images/projects/portfolio.jpg"
+                  alt="Esther Allin developer portfolio screenshot"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  Esther Allin Portfolio
+                </h3>
+                <p className="text-slate-400 leading-relaxed flex-1">
+                  Developer portfolio showcasing modern frontend development, Git
+                  workflows, responsive design, accessibility improvements, and
+                  deployment using Vercel.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {["Next.js", "TypeScript", "Tailwind CSS", "GitHub", "Vercel"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3 mt-5">
+                  <a
+                    href="#"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200"
+                  >
+                    View Live
+                  </a>
+                  <a
+                    href="https://github.com/estherallin/developer-portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -204,7 +338,7 @@ export default function Home() {
                   "Managing client campaigns from brief to delivery",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-slate-400">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                    <span className="mt-[5px] w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -228,7 +362,7 @@ export default function Home() {
                   "AI-assisted development using GitHub Copilot",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-slate-400">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                    <span className="mt-[5px] w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -278,7 +412,7 @@ export default function Home() {
 
           <a
             href="mailto:esther.allin@echoeffect.net"
-            className="inline-block mb-6 px-6 py-3 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200"
+            className="inline-block mb-8 px-6 py-3 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200"
           >
             Send me an email
           </a>
@@ -314,7 +448,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/esther-allin-271a7b91/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-slate-300 transition-colors duration-200"
+              className="hover:text-slate-400 transition-colors duration-200"
             >
               LinkedIn
             </a>
@@ -322,7 +456,7 @@ export default function Home() {
               href="https://github.com/EstherAllin"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-slate-300 transition-colors duration-200"
+              className="hover:text-slate-400 transition-colors duration-200"
             >
               GitHub
             </a>
