@@ -36,7 +36,7 @@ export default function Image() {
             fontWeight: 400,
           }}
         >
-          Websites shouldn't frustrate people.
+          Websites shouldn&apos;t frustrate people.
         </div>
         <div
           style={{
