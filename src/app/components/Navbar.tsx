@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "How I Build", href: "#skills" },
+  { label: "Currently", href: "#currently" },
   { label: "Featured Work", href: "#featured-work" },
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -53,9 +52,9 @@ export default function Navbar() {
               <a
                 key={label}
                 href={href}
-                className={`text-sm transition-colors duration-200 ${
+                className={`nav-link text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-sm ${
                   isActive
-                    ? "text-white font-medium"
+                    ? "text-white font-medium nav-link-active"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -68,7 +67,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="md:hidden ml-auto flex flex-col justify-center gap-1.5 p-1"
+          className="md:hidden ml-auto flex flex-col justify-center gap-1.5 p-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
@@ -104,7 +103,7 @@ export default function Navbar() {
               key={label}
               href={href}
               onClick={() => setMenuOpen(false)}
-              className={`block px-6 py-3 text-sm transition-colors duration-200 ${
+              className={`block px-6 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-inset ${
                 isActive
                   ? "text-white font-medium"
                   : "text-slate-400 hover:text-white"

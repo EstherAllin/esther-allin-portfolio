@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-[75vh] px-6 py-14 md:py-20">
+    <section className="fade-in-section min-h-[75vh] px-6 pt-24 pb-14 md:pt-28 md:pb-20">
       <div className="max-w-6xl mx-auto">
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="relative z-20 text-left">
@@ -17,27 +17,43 @@ export default function Hero() {
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-[52ch]">
               I&apos;m{" "}
               <strong className="text-slate-200 font-semibold">Esther Allin</strong>{" "}
-              — a frontend developer who came from marketing and builds for real
-              users.
+              — I help businesses turn UX, SEO, and frontend development into
+              websites that convert.
             </p>
+
+            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Core strengths">
+              {[
+                "Accessibility-first",
+                "SEO-led",
+                "Performance-focused",
+                "Case-study driven",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <a
                 href="#featured-work"
-                className="inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="interactive-button inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 See My Work
               </a>
               <a
                 href="#contact"
-                className="inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="interactive-button inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 Contact
               </a>
             </div>
           </div>
 
-          <div className="w-full md:-ml-36 md:-mr-10 md:z-0">
+          <div className="group w-full md:-ml-40 md:-mr-12 md:z-0">
             <div className="relative overflow-hidden">
               <Image
                 src="/images/people/esther-hero.webp.png"
@@ -45,7 +61,7 @@ export default function Hero() {
                 width={900}
                 height={1125}
                 priority
-                className="w-full h-auto object-contain object-[50%_center]"
+                className="interactive-image w-[105%] h-auto object-contain object-[50%_center]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div
