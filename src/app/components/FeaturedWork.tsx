@@ -13,8 +13,8 @@ export default function FeaturedWork() {
         "Produced a clearer mobile-first flow and a stronger inquiry path that reduced decision friction in the concept journey.",
       tags: ["Next.js", "Tailwind CSS", "Vercel"],
       primaryText: "View Concept",
-      primaryHref: "#",
-      githubHref: "#",
+      primaryHref: "mailto:esther.allin@echoeffect.net?subject=Harbor%20Plaza%20Storage%20Concept",
+      githubHref: "",
       note: "Independent concept project. Not commissioned by or affiliated with Harbor Plaza Storage.",
     },
     {
@@ -30,8 +30,8 @@ export default function FeaturedWork() {
         "Delivered a cleaner brand narrative with improved readability and interaction clarity across mobile and desktop breakpoints.",
       tags: ["Next.js", "Tailwind CSS", "React", "Vercel"],
       primaryText: "View Project",
-      primaryHref: "#",
-      githubHref: "#",
+      primaryHref: "mailto:esther.allin@echoeffect.net?subject=ValaShibbs%20Creator%20Site",
+      githubHref: "",
     },
     {
       label: "Portfolio",
@@ -129,18 +129,29 @@ export default function FeaturedWork() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
                       href={project.primaryHref}
+                      target={project.primaryHref.startsWith("http") ? "_blank" : undefined}
+                      rel={project.primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="interactive-button inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     >
                       {project.primaryText}
                     </a>
-                    <a
-                      href={project.githubHref}
-                      target={project.githubHref.startsWith("http") ? "_blank" : undefined}
-                      rel={project.githubHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="interactive-button inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                    >
-                      GitHub
-                    </a>
+                    {project.githubHref ? (
+                      <a
+                        href={project.githubHref}
+                        target={project.githubHref.startsWith("http") ? "_blank" : undefined}
+                        rel={project.githubHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="interactive-button inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                      >
+                        GitHub
+                      </a>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-medium text-slate-500 border border-slate-800 rounded-full cursor-not-allowed"
+                      >
+                        GitHub (Private)
+                      </span>
+                    )}
                   </div>
               </article>
             );
