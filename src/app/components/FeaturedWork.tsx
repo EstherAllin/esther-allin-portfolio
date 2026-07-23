@@ -1,8 +1,14 @@
+import BeforeAfterSlider from './BeforeAfterSlider';
+
 export default function FeaturedWork() {
   const projects = [
     {
       label: "Concept Redesign",
       title: "Harbor Plaza Storage",
+      beforeAfterImages: {
+        before: "/images/projects/People/HarborPlaza Before.png",
+        after: "/images/projects/People/HarborPlaza After.png",
+      },
       problem:
         "The existing journey made it harder for visitors to compare unit options quickly, especially on mobile, and key calls to action were buried below competing content.",
       built:
@@ -12,9 +18,6 @@ export default function FeaturedWork() {
       outcome:
         "Produced a clearer mobile-first flow and a stronger inquiry path that reduced decision friction in the concept journey.",
       tags: ["Next.js", "Tailwind CSS", "Vercel"],
-      primaryText: "View Concept",
-      primaryHref: "mailto:esther.allin@echoeffect.net?subject=Harbor%20Plaza%20Storage%20Concept",
-      githubHref: "",
       note: "Independent concept project. Not commissioned by or affiliated with Harbor Plaza Storage.",
     },
     {
@@ -72,6 +75,12 @@ export default function FeaturedWork() {
                 key={project.title}
                 className="interactive-card rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8"
               >
+                  {'beforeAfterImages' in project && project.beforeAfterImages ? (
+                    <BeforeAfterSlider
+                      before={project.beforeAfterImages.before}
+                      after={project.beforeAfterImages.after}
+                    />
+                  ) : null}
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-purple-400 mb-3">
                     {project.label}
                   </p>
@@ -127,6 +136,7 @@ export default function FeaturedWork() {
                   ) : null}
 
                   <div className="flex flex-col sm:flex-row gap-3">
+                    {'primaryHref' in project ? (
                     <a
                       href={project.primaryHref}
                       target={project.primaryHref.startsWith("http") ? "_blank" : undefined}
@@ -135,7 +145,9 @@ export default function FeaturedWork() {
                     >
                       {project.primaryText}
                     </a>
-                    {project.githubHref ? (
+                    ) : null}
+                    {'githubHref' in project ? (
+                      project.githubHref ? (
                       <a
                         href={project.githubHref}
                         target={project.githubHref.startsWith("http") ? "_blank" : undefined}
@@ -151,7 +163,7 @@ export default function FeaturedWork() {
                       >
                         GitHub (Private)
                       </span>
-                    )}
+                    )) : null}
                   </div>
               </article>
             );
