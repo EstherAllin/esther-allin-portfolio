@@ -23,6 +23,7 @@ export default function FeaturedWork() {
     {
       label: "Personal Brand",
       title: "ValaShibbs Creator Site",
+      image: "/images/projects/People/ValaShibbs.png",
       problem:
         "The creator needed a site that felt personal and on-brand without sacrificing speed, clarity, or usability on smaller screens where most visitors landed.",
       built:
@@ -32,9 +33,6 @@ export default function FeaturedWork() {
       outcome:
         "Delivered a cleaner brand narrative with improved readability and interaction clarity across mobile and desktop breakpoints.",
       tags: ["Next.js", "Tailwind CSS", "React", "Vercel"],
-      primaryText: "View Project",
-      primaryHref: "mailto:esther.allin@echoeffect.net?subject=ValaShibbs%20Creator%20Site",
-      githubHref: "",
     },
     {
       label: "Portfolio",
@@ -80,6 +78,14 @@ export default function FeaturedWork() {
                       before={project.beforeAfterImages.before}
                       after={project.beforeAfterImages.after}
                     />
+                  ) : 'image' in project && project.image ? (
+                    <div className="mb-6 overflow-hidden rounded-xl">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                        className="w-full object-cover"
+                      />
+                    </div>
                   ) : null}
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-purple-400 mb-3">
                     {project.label}
